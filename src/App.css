@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:400,700') ;
+
 .App {
+  font-family: "Oxygen",sans-serif;
+  font-weight: 700;
   text-align: center;
+
 }
 
+@media only screen and (max-width: 600px) {
+  .navbar {
+      justify-content: center;
+  }
+
+}

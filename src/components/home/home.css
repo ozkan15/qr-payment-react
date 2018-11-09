@@ -1,0 +1,75 @@
+
+
+.home {
+
+  margin-top: 100px;
+  background-color: blueviolet;
+  width: 60%;
+  margin: 10% auto;
+  box-shadow: 0px 13px 40px -13px rgba(0,0,0,0.75);
+
+}
+
+button{
+border: 0;
+  padding: 8px 20px;
+  margin: 0 2px;
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: #f16051;
+  color: #fff;
+  margin-bottom: 3%;
+}
+
+button:hover{
+  background-color: gray;
+}
+
+
+input[type="number"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #f16051;
+  width: 30%;
+  padding-bottom: 4px;
+  color: #fff !important;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  font-size: 20px;
+
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
+    -webkit-text-fill-color: #fff !important;
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+.card{
+  border-radius: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .home {
+      width: 90%;
+  }
+
+}

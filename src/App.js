@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Home from './components/home/home';
 import './App.css';
+import {Route, Switch, NavLink} from 'react-router-dom';
+import Payment from './components/payment/payment';
+
+
 
 class App extends Component {
 
@@ -20,23 +24,28 @@ class App extends Component {
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/">
                 POS PAYMENT
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                HOMEPAGE
-              </a>
+              <NavLink className="nav-link" to="/">
+                HomePage
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                PURCHASE AND PAY
-              </a>
+              <NavLink className="nav-link" to="/payment">
+                Payment
+              </NavLink>
             </li>
           </ul>
         </nav>
-        <Home />
+        <Switch>
+          <Route path="/" component={Home} exact/>
+          <Route path="/payment" component={Payment}/>
+        </Switch>
+
+
       </div>
     );
   }
