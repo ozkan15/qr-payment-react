@@ -10,7 +10,7 @@
 
 }
 
-button{
+button[type="submit"]{
 border: 0;
   padding: 8px 20px;
   margin: 0 2px;
@@ -23,7 +23,7 @@ border: 0;
   margin-bottom: 3%;
 }
 
-button:hover{
+button[type="submit"]:hover{
   background-color: gray;
 }
 

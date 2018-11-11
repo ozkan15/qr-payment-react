@@ -1,25 +1,19 @@
 import React from 'react';
-import './home.css';
-import { NavLink } from 'react-router-dom';
-import {Router, withRouter} from 'react-router-dom';
+import './refund.css';
+import {NavLink} from 'react-router-dom';
 
-class Home extends React.Component {
+export default class Refund extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      receiptAmount: 0,
-      QRdata:'',
-      alert_error: null
-    };
-    this.get_qr = this.get_qr.bind(this);
+    this.state = {sessionId:"", QRdata:0};
     this.handleChange = this.handleChange.bind(this);
-    this.qr_send_to_api = this.qr_send_to_api.bind(this);
 
+    this.get_qr = this.get_qr.bind(this);
+    this.qr_send_to_api = this.qr_send_to_api.bind(this);
   }
 
-
   handleChange(event) {
-    this.setState({ receiptAmount: Number(event.target.value) });
+    this.setState({ sessionId: Number(event.target.value) });
   }
 
   async qr_send_to_api() {
@@ -35,7 +29,7 @@ class Home extends React.Component {
   async get_qr(event) {
     event.preventDefault();
     console.log("reading qr");
-    await fetch('https://sandbox-api.payosy.com/api/get_qr_sale', {
+    await fetch('https://sandbox-api.payosy.com/api/get_qr_refund', {
       method: 'post',
       headers: {
         accept: 'application/json',
@@ -44,12 +38,12 @@ class Home extends React.Component {
           'Y6pR1pW4yG7eF0fQ1cS7tH8oK5yQ6tH3aW0oI6rN4kH2sS4iR4',
         'x-ibm-client-id': '42776325-d649-4ed2-83a4-8e66c796a2aa'
       },
-      body: JSON.stringify({ totalReceiptAmount: this.state.receiptAmount })
+      body: JSON.stringify({ cancelledTxID: String(this.state.sessionId) })
     })
       .then(res => res.json())
       .then(data => {
         this.setState({QRdata:data.QRdata, alert_error: false });
-        this.props.callBack(this.state.QRdata);
+        //this.props.callBack(this.state.QRdata);
         console.log(data);
         this.qr_send_to_api();
         this.props.history.push("/payment");
@@ -61,6 +55,7 @@ class Home extends React.Component {
   }
 
   render() {
+
     let alert_card = null;
     if (this.state.alert_error) {
       alert_card = (
@@ -71,27 +66,19 @@ class Home extends React.Component {
     }
 
     return (
-      <div className="home">
-        <form>
-          <legend>SHOP</legend>
-          <hr />
-          PRICE :{` `}
+      <div className="refund-card">
+        <legend>GET REFUND</legend>
+        <hr />
+        SESSION ID :{` `}
           <input
             type="number"
             onChange={this.handleChange}
-            value={this.state.receiptAmount.toString()}
+            value={this.state.sessionId.toString()}
           />
-          TL
           <br />
-          <button type="submit" onClick={this.get_qr}>
-              READ QR
-          </button>
-          </form>
-        {alert_card}
-
+          <button type="submit" onClick={this.get_qr}>READ QR</button>
+          {alert_card}
       </div>
     );
   }
 }
-
-export default withRouter(Home);
