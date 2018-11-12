@@ -14,6 +14,4 @@ git clone https://github.com/ozkan15/qr-payment-api.git
 
 cd qr-payment-api
 
-npm install
-
 node server.js
