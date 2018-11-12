@@ -22,11 +22,6 @@ class QrSale extends React.Component {
   }
 
 
-
-  Callback(){
-
-  }
-
   async get_qr(event) {
     event.preventDefault();
     console.log("reading qr");
