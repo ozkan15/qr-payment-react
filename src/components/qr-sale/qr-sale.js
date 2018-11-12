@@ -42,7 +42,7 @@ class QrSale extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        if(data.returnCode != 1000) this.setState({ alert_error: true });
+        if(data.returnCode !== 1000) this.setState({ alert_error: true });
         else {
           this.setState({QRdata:data.QRdata, alert_error: false });
           this.props.callBack(this.state.QRdata);

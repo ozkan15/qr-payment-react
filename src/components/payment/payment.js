@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
     this.state = {
       dropdownSelected: 'Select a Payment Method',
       amount: 0,
-      paymentType:0,
+      paymentType:-1,
       alert_error: null
   };
 
@@ -87,7 +87,6 @@ import { withRouter } from 'react-router-dom';
 
     const payment_options = [
       {id:0, name:'Discount'},
-      {id:1, name:'Cash'},
       {id:3, name:'Bank Card (Credit/Debit)'},
       {id:4, name:'Pay With Coupon'},
       {id:7, name:'Food'},
@@ -128,7 +127,7 @@ import { withRouter } from 'react-router-dom';
         <form onSubmit={this.payment_request}>
           PAYMENT AMOUNT: <input
             type="number"
-            max={this.props.QRdecoded[2]}
+            max={this.props.QRdecoded[2]/100}
             onChange={this.handleChange}
             value={this.state.amount.toString()}
             required

@@ -23,7 +23,7 @@ class Refund extends React.Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if(data.batchSummary.returnCode == 1000) {
+        if(data.batchSummary.returnCode === 1000) {
           this.props.history.push('/receipt');
           this.props.getReceipt(data);
         }
@@ -46,8 +46,7 @@ class Refund extends React.Component {
 
     return (
       <div className="refund-card">
-          <legend>REFUND DETAILS</legend>
-          <h3>Refund Amount: {} TL</h3>
+          <h3>Continue the Process</h3>
           <button  type="submit" onClick={this.refund_request}>GET REFUND</button>
           {alert_card}
       </div>

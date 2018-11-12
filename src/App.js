@@ -34,17 +34,15 @@ class App extends Component {
     var QRdecoded = [];
     var i = 0;
     while (i < data.length) {
-      var tag = data.substring(i, i + 2);
       i += 2;
       var length = Number(data.substring(i, i + 2));
       i += 2;
       var value = data.substring(i, i + length);
       i += length;
       QRdecoded.push(value);
-      if (QRdecoded.length == 8)
+      if (QRdecoded.length === 8)
         this.setState({ refundQRdataDecoded: QRdecoded, refundQRdata: data });
       else this.setState({ saleQRdataDecoded: QRdecoded, saleQRdata: data });
-      console.log(tag + '\n' + length + '\n' + value);
     }
   }
 

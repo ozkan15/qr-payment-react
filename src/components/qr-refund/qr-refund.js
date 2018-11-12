@@ -35,7 +35,7 @@ import { withRouter } from 'react-router-dom';
     })
       .then(res => res.json())
       .then(data => {
-        if(data.returnCode != 1000) this.setState({ alert_error: true });
+        if(data.returnCode !== 1000) this.setState({ alert_error: true });
         else {
           this.setState({QRdata:data.QRdata, alert_error: false });
           this.props.callBack(this.state.QRdata);
@@ -62,7 +62,7 @@ import { withRouter } from 'react-router-dom';
     }
 
     return (
-      <div className="refund-card">
+      <div className="qr-refund-card">
         <form onSubmit={this.get_qr}>
         <legend>GET REFUND</legend>
         <hr />
