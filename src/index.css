@@ -1,3 +1,6 @@
+html{
+  height: 100%;
+}
 body{
   margin: 0;
   padding: 0;
@@ -8,6 +11,9 @@ body{
   -moz-osx-font-smoothing: grayscale;
   background-color: gray;
   font-size: 15px;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
 }
 
 code {
