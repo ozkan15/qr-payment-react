@@ -19,6 +19,7 @@ import { withRouter } from 'react-router-dom';
     this.handleChange = this.handleChange.bind(this);
   }
 
+
   async payment_request(event) {
     event.preventDefault();
     await fetch('http://localhost:8080/sale', {
@@ -53,10 +54,12 @@ import { withRouter } from 'react-router-dom';
 
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick);
+    sessionStorage.setItem("qr-sale",this.props.QRdata);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClick);
+    sessionStorage.removeItem("qr-sale");
   }
 
   handleClick = e => {

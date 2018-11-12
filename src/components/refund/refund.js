@@ -31,8 +31,12 @@ class Refund extends React.Component {
       })
       .catch(error => console.log(error));
   }
-
-
+  componentWillMount(){
+    sessionStorage.setItem("qr-refund",this.props.QRdata);
+  }
+  componentWillUnmount(){
+    sessionStorage.removeItem("qr-refund");
+  }
 
   render(){
     let alert_card = null;

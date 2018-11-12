@@ -30,6 +30,8 @@ class App extends Component {
     this.setState({ receiptData: data });
   }
 
+
+
   Callback(data) {
     var QRdecoded = [];
     var i = 0;
@@ -51,7 +53,7 @@ class App extends Component {
       <Route
         {...rest}
         render={props =>
-          this.state.refundQRdata ? (
+          sessionStorage.getItem("qr-refund") && this.state.refundQRdata  ? (
             <Component
               {...props}
               QRdata={this.state.refundQRdata}
@@ -65,11 +67,13 @@ class App extends Component {
       />
     );
 
+
+
     const PaymentRoute = ({ component: Component, ...rest }) => (
       <Route
         {...rest}
         render={props =>
-          this.state.saleQRdata ? (
+          sessionStorage.getItem("qr-sale")  && this.state.saleQRdata ? (
             <Component
               {...props}
               QRdata={this.state.saleQRdata}
@@ -131,9 +135,8 @@ class App extends Component {
           <PublicRoute path="/qr_refund" component={QrRefund} />
           <ReceiptRoute path="/receipt" component={Receipt} />
           <RefundRoute path="/refund" component={Refund} />
-          <Route path="/" component={Home} />
+          <Route path="/" component={Home} exact/>
         </Switch>
-
         <footer className="page-footer font-small blue">
           <div className="footer-copyright text-center py-3">
             © 2018 -

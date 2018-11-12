@@ -3,6 +3,14 @@ import {NavLink} from 'react-router-dom';
 import './home.css';
 
 export default class Home extends React.Component {
+
+
+
+  componentDidMount() {
+    sessionStorage.setItem("qr-refund","qr-refund");
+    sessionStorage.setItem("qr-sale","qr-sale");
+  }
+
   render(){
     return (
       <div><br/>

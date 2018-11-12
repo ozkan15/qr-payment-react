@@ -22,6 +22,7 @@ class QrSale extends React.Component {
   }
 
 
+
   Callback(){
 
   }
