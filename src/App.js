@@ -19,8 +19,7 @@ class App extends Component {
       refundQRdata: '',
       saleQRdataDecoded: [],
       refundQRdataDecoded: [],
-      receiptData: [],
-      loggedIn: false
+      receiptData: []
     };
     this.Callback = this.Callback.bind(this);
     this.getReceiptCallback = this.getReceiptCallback.bind(this);
